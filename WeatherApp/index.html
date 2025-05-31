@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="appFrame">
+      <h1>Weather App</h1>
+      <form class="form">
+        <input
+          placeholder="Enter City"
+          type="text"
+          id="city-input"
+          name="city"
+        />
+        <input type="submit" value="Get Weather" />
+      </form>
+      <div class="infoPage">
+        <div class="icon">
+          <!--  <img
+              src="//cdn.weatherapi.com/weather/64x64/day/113.png"
+              alt="weather-icon"
+            />-->
+        </div>
+        <div class="degree"></div>
+        <div class="quickInfo"></div>
+        <div class="infoBoxes">
+          <!--<div class="box">Feels like: 3&degC</div>
+          <div class="box">Humidity: 81%</div>
+          <div class="box">Wind speed: 154 m/s</div>-->
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
