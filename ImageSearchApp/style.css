@@ -31,6 +31,8 @@ body {
   justify-content: start;
 }
 .box-img img {
+  height: 220px;
+  object-fit: cover;
   transition: transform 0.3s;
 }
 .box-img img:hover {
@@ -63,15 +65,31 @@ body {
 .input-sec input:focus {
   outline: none;
 }
-.search-button {
+.search-button,
+.show-more-button {
   font-size: 18px;
   padding: 8px 16px;
+  border-radius: 3px;
   border: none;
-  border-radius: 2px;
   background-color: rgb(50, 184, 50);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
   color: white;
   cursor: pointer;
+}
+.search-button:hover,
+.show-more-button:hover {
+  opacity: 0.9;
+}
+.search-button:active {
+  background-color: rgba(28, 100, 28, 0.9);
+}
+.show-more-button:active {
+  background-color: rgba(5, 74, 113, 0.9);
+}
+.show-more-button {
+  display: none;
+  margin: 40px;
+  background-color: rgb(10, 134, 206);
 }
 @media (min-width: 600px) and (max-width: 1200px) {
   .box-grid {
