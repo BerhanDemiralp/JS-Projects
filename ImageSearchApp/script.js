@@ -36,8 +36,9 @@ function createResultsHtml(results) {
   });
 }
 async function searchImages() {
+  page = 1;
   inputData = textInputEl.value;
-  const url = `https://api.unsplash.com/search/photos?page${page}&query=${inputData}&client_id=${apiKey}`;
+  const url = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${apiKey}`;
   const response = await fetch(url);
   const data = await response.json();
   const results = data.results;
@@ -46,8 +47,8 @@ async function searchImages() {
 }
 
 async function showMore() {
-  const url = `https://api.unsplash.com/search/photos?page${page}&query=${inputData}&client_id=${apiKey}`;
-  const response = await fetch(url);
+  const url2 = `https://api.unsplash.com/search/photos?page=${page}&query=${inputData}&client_id=${apiKey}`;
+  const response = await fetch(url2);
   const data = await response.json();
   const results = data.results;
   createResultsHtml(results);
