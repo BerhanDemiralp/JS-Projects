@@ -14,15 +14,7 @@ searchButton.addEventListener("click", (event) => {
 showMoreButton.addEventListener("click", (event) => {
   showMore();
 });
-async function searchImages() {
-  inputData = textInputEl.value;
-  const url = `https://api.unsplash.com/search/photos?page${page}&query=${inputData}&client_id=${apiKey}`;
-  const response = await fetch(url);
-  const data = await response.json();
-  const results = data.results;
-
-  boxGrid.innerHTML = "";
-
+function createResultsHtml(results) {
   results.map((value) => {
     const boxContainer = document.createElement("div");
     boxContainer.classList.add("box");
@@ -35,12 +27,28 @@ async function searchImages() {
     desc.text = value.alt_description;
     desc.classList.add("box-desc");
     desc.href = value.links.html;
-    console.log(desc);
     boxContainer.appendChild(imgContaniner);
     boxContainer.appendChild(desc);
     imgContaniner.appendChild(img);
     boxGrid.appendChild(boxContainer);
     showMoreButton.style.display = "block";
+    page++;
   });
-  page++;
+}
+async function searchImages() {
+  inputData = textInputEl.value;
+  const url = `https://api.unsplash.com/search/photos?page${page}&query=${inputData}&client_id=${apiKey}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  const results = data.results;
+  boxGrid.innerHTML = "";
+  createResultsHtml(results);
+}
+
+async function showMore() {
+  const url = `https://api.unsplash.com/search/photos?page${page}&query=${inputData}&client_id=${apiKey}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  const results = data.results;
+  createResultsHtml(results);
 }
